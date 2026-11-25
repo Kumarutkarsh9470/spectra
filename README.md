@@ -1,5 +1,7 @@
 # SPECTRA — two senses, one mathematics
 
+**▶ Live: <https://kumarutkarsh9470.github.io/spectra/>**
+
 An interactive web app made of **eight application-level instruments** built on the IIT Guwahati courses
 [Vision & Image Processing](https://spinlabiitg.github.io/vip/) and [Speech & Audio Processing](https://spinlabiitg.github.io/sap/).
 
