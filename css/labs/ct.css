@@ -1,0 +1,16 @@
+/* E3 CT Scanner */
+.ct-top { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.ct-bot { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.ct-top .card, .ct-bot .card { padding: 10px; }
+.ct-sq { display: block; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; background: #04060b; }
+.ct-paint { cursor: crosshair; }
+.ct-leg { margin-top: 8px; font-size: 10px; gap: 8px; }
+@media (max-width: 1180px) {
+  .ct-top { grid-template-columns: 1fr 1fr; }
+  .ct-top > .card:first-child { grid-column: 1 / -1; }
+  .ct-top > .card:first-child .ct-sq { max-width: 520px; margin: 0 auto; }
+  .ct-bot { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .ct-top { grid-template-columns: 1fr; }
+}

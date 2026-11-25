@@ -1,0 +1,53 @@
+/* B1 Modulation Lab */
+.br-tabs { width: 100%; }
+.br-tabs .seg { display: grid; grid-template-columns: repeat(3, 1fr); width: 100%; padding: 4px; border-radius: 14px; }
+.br-tabs .seg-btn { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; padding: 10px 14px; border-radius: 10px; text-align: left; }
+.br-tabs .seg-btn b { font: 600 14.5px var(--f-disp); color: var(--ink); letter-spacing: -.01em; }
+.br-tabs .seg-btn small { font-size: 11.5px; color: var(--ink-faint); white-space: normal; }
+.br-tabs .seg-btn.on { background: linear-gradient(135deg, rgba(var(--acc-rgb), .22), rgba(var(--acc-rgb), .05)); }
+.br-tabs .seg-btn.on small { color: var(--ink-dim); }
+
+.br-pane { display: grid; gap: 14px; min-width: 0; }
+.br-rail { display: flex; flex-direction: column; gap: 12px; }
+
+.br-flow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.br-flow span {
+  position: relative; padding: 4px 9px; border-radius: 8px; font: 600 10.5px var(--f-mono); letter-spacing: .04em;
+  color: var(--ink-dim); border: 1px solid var(--line-2); background: rgba(255, 255, 255, .03);
+  animation: brflow 4s ease-in-out infinite; animation-delay: calc(var(--i) * .25s);
+}
+.br-flow span + span::before { content: '›'; position: absolute; left: -7px; top: 3px; color: var(--ink-faint); }
+@keyframes brflow { 0%, 70%, 100% { border-color: var(--line-2); color: var(--ink-dim); } 15% { border-color: rgba(var(--acc-rgb), .7); color: var(--ink); box-shadow: 0 0 12px rgba(var(--acc-rgb), .35); } }
+
+.br-m1 { display: grid; grid-template-columns: 1.15fr 1fr; gap: 14px; min-width: 0; }
+.br-stack { display: grid; gap: 14px; min-width: 0; }
+.br-modwrap { position: relative; }
+.br-mod { height: 442px; image-rendering: auto; }
+.br-specwrap { position: relative; }
+.br-spec { height: 190px; }
+.br-spec.tall { height: 340px; }
+.br-spec.paint { height: min(520px, 62vh); }
+.br-ov { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; border-radius: 10px; }
+.br-ov.paintable { pointer-events: auto; cursor: crosshair; }
+
+.br-prog { height: 4px; border-radius: 4px; background: rgba(255, 255, 255, .06); overflow: hidden; }
+.br-prog i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--bridge), var(--ear)); box-shadow: 0 0 10px var(--bridge); transition: width .12s; }
+.br-prog.busy i { animation: brpulse 1s ease-in-out infinite; }
+@keyframes brpulse { 50% { opacity: .55; } }
+
+.br-textrow { display: flex; gap: 6px; }
+.br-text {
+  flex: 1; min-width: 0; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--line-2);
+  background: rgba(255, 255, 255, .04); color: var(--ink); font: 500 13px var(--f-ui); outline: none;
+}
+.br-text:focus { border-color: var(--acc); box-shadow: 0 0 0 3px rgba(var(--acc-rgb), .15); }
+
+@media (max-width: 1180px) { .br-m1 { grid-template-columns: 1fr; } .br-mod { height: 340px; } }
+@media (max-width: 640px) {
+  .br-tabs .seg { grid-template-columns: 1fr; }
+  .br-tabs .seg-btn small { display: none; }
+  .br-mod { height: 260px; }
+  .br-spec { height: 150px; }
+  .br-spec.tall { height: 220px; }
+  .br-spec.paint { height: 340px; }
+}

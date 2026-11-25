@@ -1,0 +1,20 @@
+/* E2 Spectral Darkroom */
+.dr-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.dr-grid3 .card { padding: 10px; }
+.cv.dr-sq { aspect-ratio: 1 / 1; width: 100%; height: auto; cursor: default; }
+.lab-stage .card:nth-child(2) > .cv.dr-sq { cursor: crosshair; }
+
+.dr-wtags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.dr-wtags span { font: 600 10.5px var(--f-mono); color: var(--eye); padding: 2px 7px; border-radius: 6px; background: rgba(77,225,255,.08); border: 1px solid rgba(77,225,255,.25); }
+.dr-prof { display: block; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; background: #05060a; }
+.dr-hyb { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 14px; }
+.dr-dist { display: block; width: 100%; aspect-ratio: 1 / 1; border-radius: 10px; background: #05060a; }
+.dr-pyr { display: block; width: 100%; height: calc(100% - 0px); min-height: 220px; border-radius: 10px; background: #05060a; }
+.dr-hyb .card:last-child { display: flex; flex-direction: column; }
+.dr-hyb .card:last-child .dr-pyr { flex: 1; }
+.dr-rail { display: flex; flex-direction: column; gap: 12px; }
+@media (max-width: 760px) {
+  .dr-grid3 { grid-template-columns: 1fr 1fr; }
+  .dr-grid3 > .card.dr-spec { grid-column: 1 / -1; order: -1; }
+  .dr-hyb { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,28 @@
+/* E4 Foveal Engine */
+.fv-main { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 14px; align-items: start; }
+.fv-view { padding: 12px; }
+.fv-main-cv { aspect-ratio: 1; cursor: none; }
+.fv-mode-tag { top: 10px; right: 12px; }
+.fv-side, .fv-side-block { display: grid; gap: 14px; min-width: 0; }
+.fv-budget { display: grid; grid-template-columns: 1fr 128px; gap: 14px; align-items: center; margin-top: 20px; }
+.fv-big { display: flex; align-items: baseline; gap: 4px; }
+.fv-big b { font: 600 54px/1 var(--f-mono); color: var(--acc); letter-spacing: -0.04em; text-shadow: 0 0 30px rgba(var(--acc-rgb), .45); }
+.fv-big span { font: 500 18px var(--f-mono); color: var(--ink-faint); }
+.fv-big-sub { margin-top: 8px; font: 500 11px var(--f-mono); color: var(--ink-faint); }
+.fv-dens { width: 128px; height: 128px; border-radius: 12px; outline: 1px solid var(--line); }
+.fv-plot { width: 100%; height: 220px; display: block; margin-top: 20px; }
+.fv-chans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 22px; }
+.fv-chan { display: flex; flex-direction: column; gap: 5px; }
+.fv-chan-cv { aspect-ratio: 1; }
+.fv-chan span { font: 500 10px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-faint); }
+.fv-chan:last-child span { color: var(--acc); }
+.fv-timeline { width: 100%; height: 150px; display: block; margin-top: 20px; }
+.fv-you-stats { margin-top: 22px; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+@media (max-width: 1180px) { .fv-main { grid-template-columns: 1fr; } }
+@media (max-width: 640px) {
+  .fv-budget { grid-template-columns: 1fr 96px; }
+  .fv-dens { width: 96px; height: 96px; }
+  .fv-big b { font-size: 42px; }
+  .fv-main-cv { cursor: crosshair; }
+}

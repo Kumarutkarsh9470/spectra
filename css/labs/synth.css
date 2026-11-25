@@ -1,0 +1,49 @@
+/* A2 Pole Instrument */
+.ps-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 14px; min-width: 0; }
+.ps-grid .card { padding-top: 32px; }
+.ps-z { grid-row: span 3; display: flex; flex-direction: column; transition: border-color .3s, box-shadow .3s; }
+.ps-z.bad { border-color: rgba(255, 107, 107, .6); box-shadow: 0 0 40px -12px rgba(255, 107, 107, .6); }
+.ps-zwrap { position: relative; flex: 1; display: flex; align-items: center; }
+.cv.ps-zcv { width: 100%; aspect-ratio: 1 / 1; height: auto; background: transparent; cursor: grab; }
+.cv.ps-zcv:active { cursor: grabbing; }
+.ps-unstable {
+  position: absolute; top: 10px; right: 10px; display: none; padding: 4px 10px; border-radius: 8px;
+  font: 700 11px var(--f-mono); letter-spacing: .2em; color: #fff; background: rgba(255, 107, 107, .25);
+  border: 1px solid var(--bad); animation: psblink .6s infinite alternate;
+}
+.ps-z.bad .ps-unstable { display: block; }
+@keyframes psblink { to { background: rgba(255, 107, 107, .5); } }
+.cv.ps-hcv { height: 220px; background: transparent; cursor: crosshair; }
+.cv.ps-scope { height: 50px; margin-top: 6px; background: rgba(0, 0, 0, .25); }
+.ps-strips { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; align-items: center; gap: 6px; }
+.ps-strip-w { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.ps-strip-w span { font: 600 9px var(--f-mono); letter-spacing: .18em; color: var(--ink-faint); text-align: center; }
+.cv.ps-strip { height: 104px; background: rgba(0, 0, 0, .25); }
+.ps-op { font: 600 18px var(--f-mono); color: var(--acc); padding-bottom: 14px; }
+.cv.ps-ir { height: 92px; background: rgba(0, 0, 0, .25); }
+
+.ps-play {
+  display: flex; align-items: center; gap: 12px; width: 100%; padding: 12px 14px; border-radius: 14px; cursor: pointer;
+  border: 1px solid rgba(var(--acc-rgb), .55); background: linear-gradient(135deg, rgba(var(--acc-rgb), .22), rgba(var(--acc-rgb), .06));
+  color: var(--ink); font: 600 15px var(--f-disp); transition: .2s;
+}
+.ps-play:hover { box-shadow: 0 0 24px -6px rgba(var(--acc-rgb), .7); }
+.ps-play-t { flex: 1; text-align: left; }
+.ps-play-ico { width: 0; height: 0; border-left: 12px solid var(--acc); border-top: 8px solid transparent; border-bottom: 8px solid transparent; margin-left: 4px; }
+.ps-play.on { background: linear-gradient(135deg, rgba(var(--acc-rgb), .45), rgba(var(--acc-rgb), .15)); box-shadow: 0 0 30px -6px rgba(var(--acc-rgb), .8); }
+.ps-play.on .ps-play-ico { width: 12px; height: 12px; border: 0; background: var(--acc); border-radius: 2px; margin-left: 2px; animation: pspulse 1s infinite; }
+.ps-play.muted { border-color: var(--bad); }
+@keyframes pspulse { 50% { box-shadow: 0 0 12px var(--acc); } }
+.ps-padwrap { margin: 0 -2px; }
+.cv.ps-pad { height: 200px; background: transparent; cursor: crosshair; }
+.ps-presets .seg-btn { font: 600 14px var(--f-disp); padding: 5px 0; min-width: 30px; }
+
+@media (max-width: 1150px) {
+  .ps-grid { grid-template-columns: 1fr; }
+  .ps-z { grid-row: auto; }
+  .cv.ps-zcv { max-width: 560px; margin: 0 auto; }
+}
+@media (max-width: 640px) {
+  .ps-strips { grid-template-columns: 1fr; }
+  .ps-op { padding: 0; text-align: center; }
+}
